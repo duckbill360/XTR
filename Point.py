@@ -10,26 +10,38 @@ def add_space(string):
 class Point:
 
     def __init__(self, x, y, p):
-        self.x = x
-        self.y = y
+        # x is the coefficient of alpha
+        # y is the coefficient of alpha^2
+        # p defines the field
         self.p = p
+        self.x = x % self.p
+        self.y = y % self.p
 
-    def __add__(self, other):
+    def __hash__(self):
+        return hash((self.x, self.y))
+
+    def add(self, other):
         return Point((self.x + other.x) % self.p,
                      (self.y + other.y) % self.p,
                      self.p)
 
-    def __sub__(self, other):
+    def sub(self, other):
         return Point((self.x - other.x) % self.p,
                      (self.y - other.y) % self.p,
                      self.p)
 
-    def __multi__(self, other):
+    def multi(self, other):
         return Point((-self.x * other.y - self.y * other.x + self.y * other.y) % self.p,
                      (self.x * other.x - self.x * other.y - self.y * other.x) % self.p,
                      self.p)
 
-    def __show__(self):
+    def scalar_multi(self, scalar):
+        return Point(self.x * scalar, self.y * scalar, self.p)
+
+    def powerP(self):
+        return Point(self.y, self.x, self.p)
+
+    def show(self):
         print('x:', add_space(format(self.x, 'x')))
         print('y:', add_space(format(self.y, 'x')))
 
