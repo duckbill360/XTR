@@ -38,7 +38,7 @@ if __name__ == '__main__':
     y = int(delete_space(input('Tr(g).y =')), 16)
 
     a = int(delete_space(input('a =')), 16)
-    b = int(delete_space(input('a =')), 16)
+    b = int(delete_space(input('b =')), 16)
 
     C = {-1: Point(x, y, p).powerP(),
          0: Point(p - 3, p - 3, p),
