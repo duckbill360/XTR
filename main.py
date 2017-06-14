@@ -44,7 +44,7 @@ if __name__ == '__main__':
          0: Point(p - 3, p - 3, p),
          1: Point(x, y, p)}
 
-    Cn(a).show()
-    Cn(b).show()
-    Cn((a * b) % q).show()
+    print('Tr(g^a) =(', add_space(format(Cn(a).x, 'x')), ',', add_space(format(Cn(a).y, 'x')), ')')
+    print('Tr(g^b) =(', add_space(format(Cn(b).x, 'x')), ',', add_space(format(Cn(b).y, 'x')), ')')
+    print('Tr(g^ab) =(', add_space(format(Cn((a * b) % q).x, 'x')), ',', add_space(format(Cn((a * b) % q).y, 'x')), ')')
 
